@@ -15,7 +15,7 @@ export class ViewListingComponent implements OnInit {
   }
 
   private GET_LISTING = gql`
-  query getAdminListings(){
+  query getAdminListings{
         listing_title
         description
         street
@@ -27,7 +27,6 @@ export class ViewListingComponent implements OnInit {
   }
   `
   getListing(){
-    const unknown = "HUH?"
     this.apolloClient.watchQuery<any>({
       query: this.GET_LISTING
       // variables:{
