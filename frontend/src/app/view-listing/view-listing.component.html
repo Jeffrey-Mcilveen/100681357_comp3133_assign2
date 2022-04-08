@@ -1,3 +1,17 @@
 <p>view-listing works!</p>
 
 <button (click)="getListing()">get listing to console</button>
+
+<h1>All listings</h1>
+<div *ngFor="let list of ListingsOutput | async" >
+    <p>listing title: {{list.listing_title}}</p>
+    <p>description: {{list.description}}</p>
+    <p>street: {{list.street}}</p>
+    <p>city: {{list.city}}</p>
+    <p>price: {{list.price}}</p>
+    <p>email: {{list.email}}</p>
+    <p>username: {{list.username}}</p>
+    <p>postal_code: {{list.postal_code}}</p>
+    <p>BREAK!!!</p>
+    <br>
+</div>

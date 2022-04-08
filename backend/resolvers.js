@@ -17,6 +17,7 @@ exports.resolvers ={
             return user.findOne({userName: args.userName})
         },
         getAdminListings: async (parent,args)=>{
+            console.log("postman test 5")
 
             // there is not user vaildation in this query because the getAdminListing commard will only be avialbile
             // to Admin user's loged in to the front end, if they can access the front end, they can be here!
