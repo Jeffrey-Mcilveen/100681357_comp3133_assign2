@@ -26,25 +26,26 @@ export class UserSignupComponent implements OnInit {
   })
 
   private ADDNEWUSER = gql`
-  mutation addUser($userN:string,$firstN:string,$lastN:string,$passW:string,$EMAIL:string,$Type_:string){
+  mutation addUser($userN:String!,$firstN:String!,$lastN:String!,$passW:String!,$EMAIL:String!,$Type_:String!){
     addUser(
-    username: $userN,
+    userName: $userN,
     firstName:$firstN,
-    lastName: $lastN
-    password: $passW
-    email: $EMAIL
+    lastName: $lastN,
+    password: $passW,
+    email: $EMAIL,
     type: $Type_
     ){
-    userName
-    firstName
-    lastName
-    password
-    email
-    type
+      userName
+      firstName
+      lastName
+      password
+      email
+      type
     }
 
   }
-  `
+    `
+    
 
 
   constructor(private apolloClient: Apollo) { }
@@ -62,6 +63,7 @@ export class UserSignupComponent implements OnInit {
         passW: pass,
         EMAIL: _EMAIL,
         Type_: Types_
+        
       }
     }).subscribe()
   }
@@ -83,14 +85,5 @@ export class UserSignupComponent implements OnInit {
     let TYPE= this.signinForm.value.type
     this.AddU(USER,FIRST,LAST,PASS,EMAIL,TYPE)
   }
-  // getFormdata(){
-  //   let USER 
-  //   let FIRST 
-  //   let LAST
-  //   let PASS 
-  //   let EMAIL 
-  //   let TYPE )
-  //   this.AddU(USER,FIRST,LAST,PASS,EMAIL,TYPE)
-  // }
 
 }

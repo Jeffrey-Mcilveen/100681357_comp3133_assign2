@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ViewListingComponent } from './view-listing/view-listing.component';
 import { UserSignupComponent } from './components/user-signup/user-signup.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 
 const routes: Routes = [
-  {path: '', redirectTo:'signin', pathMatch:"full"},
+  {path: '', redirectTo:'login', pathMatch:"full"},
+  {path: 'login', component: LoginPageComponent},
   {path:'signin', component: UserSignupComponent},
   // {path: 'home', component: AppComponent,  },
   {path: 'view', component: ViewListingComponent },

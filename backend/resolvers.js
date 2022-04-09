@@ -60,7 +60,7 @@ exports.resolvers ={
 
         },
         login:async (parent,args,context)=>{
-            console.log("active")
+            console.log("Login active new")
 
             const listcheck = await user.find({})
             //in testing with an incorrect input it said it couldn't read the userName and stopped,
@@ -69,10 +69,11 @@ exports.resolvers ={
             for(i=0; listcheck.length;i++){
                 if(JSON.stringify(listcheck[i].userName) === JSON.stringify(args.userName)&&
                 JSON.stringify(listcheck[i].password) === JSON.stringify(args.password)){
-                    console.log("Working!")
+                    console.log("Login match found!")
                     return [listcheck[i].userName,listcheck[i].password]
                 } 
             }
+            console.log("no match")
             throw new Error ("username and password doen't match database")      
         },
         getuserbooking: async (args)=>{

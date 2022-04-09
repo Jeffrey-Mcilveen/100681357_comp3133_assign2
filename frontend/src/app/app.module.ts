@@ -10,12 +10,14 @@ import {ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
 import {HttpLink} from 'apollo-angular/http';
 import { ViewListingComponent } from './view-listing/view-listing.component';
 import { UserSignupComponent } from './components/user-signup/user-signup.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewListingComponent,
-    UserSignupComponent
+    UserSignupComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
