@@ -60,9 +60,10 @@ exports.resolvers ={
 
         },
         login:async (parent,args,context)=>{
-            console.log("Login active new")
+            console.log("Login active new 2")
 
             const listcheck = await user.find({})
+            console.log("if this run things are okay")
             //in testing with an incorrect input it said it couldn't read the userName and stopped,
             //this means that this program can't reach my error message but still works as intened 
 
@@ -70,7 +71,7 @@ exports.resolvers ={
                 if(JSON.stringify(listcheck[i].userName) === JSON.stringify(args.userName)&&
                 JSON.stringify(listcheck[i].password) === JSON.stringify(args.password)){
                     console.log("Login match found!")
-                    return [listcheck[i].userName,listcheck[i].password]
+                    return [listcheck[i].userName,listcheck[i].password, listcheck[i].type]
                 } 
             }
             console.log("no match")
