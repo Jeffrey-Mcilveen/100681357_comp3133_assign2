@@ -86,7 +86,6 @@ exports.resolvers ={
     Mutation: {
         addUser: async (parent,args) =>{
             console.log(args)
-            
             let newUser = new user({
                 userName: args.userName,
                 firstName: args.firstName,

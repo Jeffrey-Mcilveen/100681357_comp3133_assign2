@@ -1,0 +1,36 @@
+<h1>user-signup Here!</h1>
+
+<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+<p>
+    <label for="user_Name">UserName </label>
+    <input type="text" id="user_Name" name="user_Name" formControlName="user_Name" value="threepo">
+</p>
+    <p>  
+    <label for="first_Name">FirstName </label>
+    <input type="text" id="first_Name" name="first_Name" formControlName="first_Name">
+
+    <p>
+    <label for="last_Name">Lastname </label>
+    <input type="text" id="last_Name" name="last_Name" formControlName="last_Name">
+    </p>
+    <p>
+    <label for="pass_word">password </label>
+    <input type="text" id="pass_word" name="pass_word" formControlName="pass_word">
+    </p>
+    <p>
+    <label for="e_mail">E-mail </label>
+    <input type="text" id="e_mail" name="e_mail" formControlName="e_mail">
+    </p>
+    <p>
+        <label for="User">Type </label>
+        <select id="type" name="type"  formControlName="type">
+          <option [ngValue]="u.type" *ngFor="let u of usertypes">
+           {{u.type}}
+          </option>
+        </select>
+      </p>
+
+      <p>
+        <button type="submit">Join up</button>
+      </p>
+</form>

@@ -80,8 +80,7 @@ export class ViewListingComponent implements OnInit {
   //   const inputs = "testEcho" 
   //   return this.apolloClient.watchQuery<any>({
   //     query: this.GET_LISTINGBYUSER,
-  //     variables:{
-        
+  //     variables:{      
   //     }
   //   })
   // }

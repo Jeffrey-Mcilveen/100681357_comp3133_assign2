@@ -5,21 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 //import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import {ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
 import {HttpLink} from 'apollo-angular/http';
 import { ViewListingComponent } from './view-listing/view-listing.component';
+import { UserSignupComponent } from './components/user-signup/user-signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViewListingComponent
+    ViewListingComponent,
+    UserSignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     //GraphQLModule,
     HttpClientModule,
-    ApolloModule
+    ApolloModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
