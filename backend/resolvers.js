@@ -117,6 +117,7 @@ exports.resolvers ={
         },
         adduserbooking: async (parent,args) =>{
             console.log(args)
+            console.log("adduserbooking active")
 
             let newUserBooking = new userbooking({
                 listing_id: args.listing_id,

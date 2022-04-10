@@ -14,8 +14,8 @@ export class LoginPageComponent implements OnInit {
   loginKeyAdmin: string = 'USERNAME'
 
   loginForm = new FormGroup({
-    user_Name: new FormControl(),
-    pass_word: new FormControl()
+  user_Name: new FormControl(),
+  pass_word: new FormControl()
   })
   private CHECKUSER = gql`
   query login($user_Name:String!,$pass_word:String!){

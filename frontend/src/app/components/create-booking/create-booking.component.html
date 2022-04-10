@@ -15,22 +15,26 @@
     <p>username: {{list.username}}</p>
     <p>postal_code: {{list.postal_code}}</p>
     <p><b>Book this location!</b></p>
-    <form [formGroup]="bookingform" (ngSubmit)="onSubmit()">
-        <input type="hidden" id="user_name" value="{{LoginName}}" formControlName="user_name">
+    <form [formGroup]="bookingform" (ngSubmit)="onSubmit(list)">
+        <!-- <p>
+        <label for="listing_id">Listing ID number </label>
+        <input type="text" id="listing_id" name="listing_id" formControlName="listing_id">
+    </p> -->
         <p>
         <label for="booking_id">Booking ID number </label>
         <input type="text" id="booking_id" name="booking_id" formControlName="booking_id">
     </p><p>
-        <label for="booking_date">booking Start  </label>
-        <input type="text" id="booking_date" name="booking_date" formControlName="booking_date" >
+        <label for="booking_start">Booking Start  </label>
+        <input type="date" id="booking_start" name="booking_start" formControlName="booking_start" >
     </p><p>
-        <label for="booking_end">booking End </label>
-        <input type="text" id="booking_end" name="booking_end" formControlName="booking_end">
+        <label for="booking_end">Booking End </label>
+        <input type="date" id="booking_end" name="booking_end" formControlName="booking_end">
     </p>
     <p>
         <button type="submit"  >book!</button>
     </p>
     </form>
+    <button type="button" (click)="testfun(list)">Test</button>
 
     <br>
 </div>

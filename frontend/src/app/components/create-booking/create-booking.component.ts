@@ -18,13 +18,10 @@ export class CreateBookingComponent implements OnInit {
   LoginName!: String;
   
   constructor(private apolloClient: Apollo,private activeRoute: ActivatedRoute, private router: Router) {
-    var date = new Date()
-    console.log(date)
    }
    bookingform = new FormGroup({
-    user_name: new FormControl(),
     booking_id: new FormControl(),
-    booking_date: new FormControl(),
+    booking_start: new FormControl(),
     booking_end: new FormControl()
 
    })
@@ -70,12 +67,37 @@ export class CreateBookingComponent implements OnInit {
     )
   }
   `
-  onSubmit(){
+  onSubmit(input:any){
+    
+    let listIN = input.listing_id
+    let bookID = this.bookingform.value.booking_id
+    let bookstart = this.bookingform.value.booking_start
+    let bookend = this.bookingform.value.booking_end
+    let inputuser = this.LoginName
     console.log(this.bookingform.value)
+    console.log(listIN)
+    console.log(inputuser)
+    //console.log(bookstart)
+    console.log(this.bookingform.value.booking_start)
+    this.AddBooking(listIN,bookID,bookstart,bookend,inputuser)
+  }
+  testfun(input:any){
+    console.log(input)
+    console.log(input.listing_id)
   }
   
   AddBooking(listing_id:any,booking_id:any,booking_start:any,booking_end:any,username:any){
-
+    console.log(listing_id,booking_id,booking_start,booking_end,username)
+    this.apolloClient.mutate({
+      mutation: this.CREATEBOOKING,
+      variables:{
+        listing_id: listing_id,
+        booking_id: booking_id,
+        booking_start:booking_start,
+        booking_end: booking_end,
+        username: username
+      }
+    }).subscribe
   }
 
 }
