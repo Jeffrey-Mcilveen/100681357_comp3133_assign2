@@ -1,0 +1,12 @@
+<p>view-bookings works!</p>
+<h1>Customer booking here!</h1>
+<h2>All bookings bellow</h2>
+
+<div *ngFor="let list of BookingOutput | async" >
+    <p>Listing id: {{list.listing_id}}</p>
+    <p>Looking id: {{list.booking_id}}</p>
+    <p>Booking date: {{list.booking_date}}</p>
+    <p>Booking start: {{list.booking_start}}</p>
+    <p>Booking end: {{list.booking_end}}</p>
+    <br>
+</div>

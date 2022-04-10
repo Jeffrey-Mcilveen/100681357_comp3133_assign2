@@ -1,0 +1,36 @@
+<p>create-booking works!</p>
+
+<h1>All Listings</h1>
+<h2>Click the button below to book</h2>
+<h3>Welcome {{LoginName}}</h3>
+
+<div *ngFor="let list of ListingsOutput | async">
+    <p>listing id: {{list.listing_id}}</p>
+    <p>listing title: {{list.listing_title}}</p>
+    <p>description: {{list.description}}</p>
+    <p>street: {{list.street}}</p>
+    <p>city: {{list.city}}</p>
+    <p>price: {{list.price}}</p>
+    <p>email: {{list.email}}</p>
+    <p>username: {{list.username}}</p>
+    <p>postal_code: {{list.postal_code}}</p>
+    <p><b>Book this location!</b></p>
+    <form [formGroup]="bookingform" (ngSubmit)="onSubmit()">
+        <input type="hidden" id="user_name" value="{{LoginName}}" formControlName="user_name">
+        <p>
+        <label for="booking_id">Booking ID number </label>
+        <input type="text" id="booking_id" name="booking_id" formControlName="booking_id">
+    </p><p>
+        <label for="booking_date">booking Start  </label>
+        <input type="text" id="booking_date" name="booking_date" formControlName="booking_date" >
+    </p><p>
+        <label for="booking_end">booking End </label>
+        <input type="text" id="booking_end" name="booking_end" formControlName="booking_end">
+    </p>
+    <p>
+        <button type="submit"  >book!</button>
+    </p>
+    </form>
+
+    <br>
+</div>

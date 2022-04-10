@@ -11,13 +11,17 @@ import {HttpLink} from 'apollo-angular/http';
 import { ViewListingComponent } from './view-listing/view-listing.component';
 import { UserSignupComponent } from './components/user-signup/user-signup.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { ViewBookingsComponent } from './components/view-bookings/view-bookings.component';
+import { CreateBookingComponent } from './components/create-booking/create-booking.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewListingComponent,
     UserSignupComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ViewBookingsComponent,
+    CreateBookingComponent
   ],
   imports: [
     BrowserModule,

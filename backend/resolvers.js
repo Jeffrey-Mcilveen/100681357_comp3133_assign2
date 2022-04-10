@@ -64,8 +64,6 @@ exports.resolvers ={
 
             const listcheck = await user.find({})
             console.log("if this run things are okay")
-            //in testing with an incorrect input it said it couldn't read the userName and stopped,
-            //this means that this program can't reach my error message but still works as intened 
 
             for(i=0; listcheck.length;i++){
                 if(JSON.stringify(listcheck[i].userName) === JSON.stringify(args.userName)&&

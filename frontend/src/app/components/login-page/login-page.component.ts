@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute, ParamMap } from '@angular/router';
 import { Apollo,gql } from 'apollo-angular';
+
 Router
 @Component({
   selector: 'app-login-page',
@@ -10,6 +11,7 @@ Router
 })
 export class LoginPageComponent implements OnInit {
 
+  loginKeyAdmin: string = 'USERNAME'
 
   loginForm = new FormGroup({
     user_Name: new FormControl(),
@@ -23,32 +25,7 @@ export class LoginPageComponent implements OnInit {
   )
   }
   `
-  //   private GET_LISTINGBYUSER = gql`
-  //   query getAdminlistingsbyUsername($username: String!){
-  //     getAdminlistingsbyUsername(userName: $username ){
-  //       listing_title
-  //       description
-  //       street
-  //       city
-  //       price
-  //       email
-  //       username
-  //   	  postal_code
-  //     }    
-  // }
-  // `
-  // getUserbyID(){
-  //   const user = "testEcho"
-  //   this.apolloClient.watchQuery<any>({
-  //     query: this.GET_LISTINGBYUSER,
-  //     variables:{
-  //       username : user
-  //     }
-  //   }).valueChanges.subscribe(resp =>{
-  //     console.log(resp)
-  //   })
-
-  // }
+ 
   
   Login(user_Name:any,pass_word:any ){
     console.log("Login input are " + user_Name+ " and " + pass_word)
@@ -67,17 +44,19 @@ export class LoginPageComponent implements OnInit {
         console.log(resp.data.login)
         if(resp.data.login[2] == 'admin'){
           console.log("is admin")
+          //localStorage.setItem(this.loginKeyAdmin, `${resp.data.login[0]}`)
           this.router.navigate(['/view'])
         }else{
           console.log("is customer")
-          this.router.navigate(['/signup'])
+          const input = resp.data.login[0]
+          this.router.navigate(['/createbook'], {queryParams:{name: input}})
         }
       }
-      
+      //{name: input}
     })
   }
 
-  constructor(private apolloClient: Apollo, private router: Router) { }
+  constructor(private apolloClient: Apollo, private router: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
