@@ -17,10 +17,7 @@ export class ViewBookingsComponent implements OnInit {
   constructor(private apolloClient: Apollo, private getEndPoint: HttpClient,private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.loginCheck = this.activeRoute.paramMap.pipe(
-    //   switchMap(params => this.LoginName = String(params.get('input')))
-    // )
-    // console.log(this.LoginName)
+    this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
 
     this.BookingOutput = this.apolloClient.watchQuery<any>({
       query: this.GETBOOKING

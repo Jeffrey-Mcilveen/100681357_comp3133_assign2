@@ -13,6 +13,8 @@ import { UserSignupComponent } from './components/user-signup/user-signup.compon
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { ViewBookingsComponent } from './components/view-bookings/view-bookings.component';
 import { CreateBookingComponent } from './components/create-booking/create-booking.component';
+import { AdminAddlistingsComponent } from './components/admin-addlistings/admin-addlistings.component';
+import { SearchListingsComponent } from './components/search-listings/search-listings.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CreateBookingComponent } from './components/create-booking/create-booki
     UserSignupComponent,
     LoginPageComponent,
     ViewBookingsComponent,
-    CreateBookingComponent
+    CreateBookingComponent,
+    AdminAddlistingsComponent,
+    SearchListingsComponent
   ],
   imports: [
     BrowserModule,

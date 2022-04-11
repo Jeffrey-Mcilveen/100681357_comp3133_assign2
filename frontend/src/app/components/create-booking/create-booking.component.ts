@@ -57,14 +57,23 @@ export class CreateBookingComponent implements OnInit {
   }
   `
   private CREATEBOOKING = gql`
-  mutation adduserbooking($listing_id:String!,$booking_id:String!,$booking_start:String!,$booking_end:String!,$username:String!){
+  mutation adduserbooking($listing_id1:String!,$booking_id1:String!,
+  $booking_start1:String!,$booking_end1:String!,$username1:String!){
     adduserbooking(
-    listing_id: $listing_id
-    booking_id: $booking_id
-    booking_start: $booking_start
-    booking_end: $booking_end
-    username: $username
+    listing_id: $listing_id1
+    booking_id: $booking_id1
+    booking_start: $booking_start1
+    booking_end: $booking_end1
+    username: $username1
     )
+    { 
+    listing_id
+    booking_id
+    booking_date
+    booking_start
+    booking_end
+    username
+    }
   }
   `
   onSubmit(input:any){
@@ -81,23 +90,22 @@ export class CreateBookingComponent implements OnInit {
     console.log(this.bookingform.value.booking_start)
     this.AddBooking(listIN,bookID,bookstart,bookend,inputuser)
   }
-  testfun(input:any){
-    console.log(input)
-    console.log(input.listing_id)
-  }
+
   
   AddBooking(listing_id:any,booking_id:any,booking_start:any,booking_end:any,username:any){
     console.log(listing_id,booking_id,booking_start,booking_end,username)
     this.apolloClient.mutate({
       mutation: this.CREATEBOOKING,
       variables:{
-        listing_id: listing_id,
-        booking_id: booking_id,
-        booking_start:booking_start,
-        booking_end: booking_end,
-        username: username
+        listing_id1: listing_id,
+        booking_id1: booking_id,
+        booking_start1:booking_start,
+        booking_end1: booking_end,
+        username1: username
       }
-    }).subscribe
+    }).subscribe(resp=>{
+      console.log(resp)
+    })
   }
 
 }

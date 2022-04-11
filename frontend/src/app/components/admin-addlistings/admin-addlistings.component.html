@@ -1,0 +1,44 @@
+<p>admin-addlistings works!</p>
+
+<h1>add Listing here!</h1>
+<h3>Welcome {{LoginName}}</h3>
+<a [routerLink]="['/view']" [queryParams]="{name: LoginName}">Click Here to view all listings</a>
+<form [formGroup]="listingForm" (ngSubmit)="onSubmit(listingForm.value)">
+    <p>
+        <label for="listing_id">Listing ID </label>
+        <input type="text" id="listing_id" name="listing_id" formControlName="listing_id">
+    </p>
+        <p>  
+        <label for="listing_title">Listing Title </label>
+        <input type="text" id="listing_title" name="listing_title" formControlName="listing_title">
+    
+        <p>
+        <label for="description">Description </label>
+        <input type="text" id="description" name="description" formControlName="description">
+        </p>
+        <p>
+        <label for="street">Street </label>
+        <input type="text" id="street" name="street" formControlName="street">
+        </p>
+        <p>
+        <label for="city">City </label>
+        <input type="text" id="city" name="city" formControlName="city">
+        </p>
+        <p>
+            <label for="postal_code">Postal code </label>
+            <input type="text" id="postal_code" name="postal_code" formControlName="postal_code">
+          </p>
+          <p>
+            <label for="price">Price </label>
+            <input type="number" id="price" name="price" formControlName="price">
+          </p>
+          <p>
+            <label for="email">E-mail </label>
+            <input type="text" id="email" name="email" formControlName="email">
+          </p>
+    
+          <p>
+            <button type="submit">Submit Listing</button>
+          </p>
+          <p id="output"></p>
+    </form>

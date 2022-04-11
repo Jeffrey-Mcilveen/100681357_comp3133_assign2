@@ -14,9 +14,11 @@ export class ViewListingComponent implements OnInit {
 
   dataList: any[] = []
   ListingsOutput = new Observable<any>();
-  constructor(private apolloClient: Apollo, private getEndPoint: HttpClient) { }
+  LoginName!: String;
+  constructor(private apolloClient: Apollo, private getEndPoint: HttpClient, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
    this.ListingsOutput = this.apolloClient.watchQuery<any>({
       query: this.GET_LISTING
     }).valueChanges.pipe(
@@ -25,7 +27,6 @@ export class ViewListingComponent implements OnInit {
         return resp.data.getAdminListings
       })
     )
-
   }
 
   private GET_LISTING = gql`

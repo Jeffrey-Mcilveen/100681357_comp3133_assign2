@@ -1,0 +1,72 @@
+<p>search-listings works!</p>
+
+<h1>search Listing Page</h1>
+<h4>you can search List here by name, city or postal code.</h4>
+
+  <div>
+    <form  [formGroup]="getUsernameForm" (ngSubmit)="onSubmitUser(getUsernameForm.value)" >
+        <p>
+            <label for="username"><h4> Search By Username </h4></label>
+            <input type="text" id="name" name="username" formControlName="username">
+        </p>
+        <p>
+            <button type="submit">Username Search</button>
+          </p><p>{{errorsUser}}</p><div *ngFor="let list of userOutput">
+            <p>listing title: {{list.listing_title}}</p>
+            <p>description: {{list.description}}</p>
+            <p>street: {{list.street}}</p>
+            <p>city: {{list.city}}</p>
+            <p>price: {{list.price}}</p>
+            <p>email: {{list.email}}</p>
+            <p>username: {{list.username}}</p>
+            <p>postal_code: {{list.postal_code}}</p>
+            <br>
+          </div>
+    </form>
+  </div>
+  <br>
+
+  <div>
+    <form [formGroup]="getCityForm" (ngSubmit)="onSubmitCity(getCityForm.value)">
+        <p>
+            <label for="cities"><h4> Search By City</h4> </label>
+            <input type="text" id="cities" name="cities" formControlName="cities">
+        </p>
+        <p>
+            <button type="submit">City Search</button>
+          </p><p>{{errorsCity}}</p>
+          <div *ngFor="let list of cityOutPut1">
+            <p>listing title: {{list.listing_title}}</p>
+            <p>description: {{list.description}}</p>
+            <p>street: {{list.street}}</p>
+            <p>city: {{list.city}}</p>
+            <p>price: {{list.price}}</p>
+            <p>email: {{list.email}}</p>
+            <p>username: {{list.username}}</p>
+            <p>postal_code: {{list.postal_code}}</p>
+            <br>
+        </div>
+    </form>
+  </div>
+  <br>
+  <div>
+    <form  [formGroup]="getPostalForm" (ngSubmit)="onSubmitPostal(getPostalForm.value)">
+        <p>
+            <label for="postal_code"> <h4>Search By Postal Code</h4> </label>
+            <input type="text" id="postal_code" name="postal_code" formControlName="postal_code">
+        </p>
+        <p>
+            <button type="submit">Postal Code Search</button>
+          </p><p>{{errorsPostal}}</p><div *ngFor="let list of postalOutput">
+            <p>listing title: {{list.listing_title}}</p>
+            <p>description: {{list.description}}</p>
+            <p>street: {{list.street}}</p>
+            <p>city: {{list.city}}</p>
+            <p>price: {{list.price}}</p>
+            <p>email: {{list.email}}</p>
+            <p>username: {{list.username}}</p>
+            <p>postal_code: {{list.postal_code}}</p>
+            <br>
+          </div>
+    </form>
+  </div>

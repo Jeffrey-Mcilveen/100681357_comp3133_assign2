@@ -1,9 +1,9 @@
 <p>view-listing works!</p>
-<script>
-    console.log(localStorage.getItem(loginKeyAdmin))
-</script>
-<button (click)="getListing()">get listing to console</button>
 
+
+<!-- <button (click)="getListing()">get listing to console</button> -->
+<h3>Welcome {{LoginName}}</h3>
+<h4>below is all listings inputed</h4>
 <h1>All listings</h1>
 <div *ngFor="let list of ListingsOutput | async" >
     <p>listing title: {{list.listing_title}}</p>
@@ -14,6 +14,6 @@
     <p>email: {{list.email}}</p>
     <p>username: {{list.username}}</p>
     <p>postal_code: {{list.postal_code}}</p>
-    <p>BREAK!!!</p>
+    <p></p>
     <br>
 </div>

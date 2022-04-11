@@ -44,15 +44,16 @@ export class LoginPageComponent implements OnInit {
         console.log(resp.data.login)
         if(resp.data.login[2] == 'admin'){
           console.log("is admin")
+          const input = resp.data.login[0]
           //localStorage.setItem(this.loginKeyAdmin, `${resp.data.login[0]}`)
-          this.router.navigate(['/view'])
+          this.router.navigate(['/addlist'],{queryParams: {name: input}} )
         }else{
           console.log("is customer")
           const input = resp.data.login[0]
           this.router.navigate(['/createbook'], {queryParams:{name: input}})
         }
       }
-      //{name: input}
+
     })
   }
 
