@@ -1,23 +1,26 @@
-<p>create-booking works!</p>
-
+<div class="topnav">
+    <p><a class="active" [routerLink]="['/login']">Logout</a></p>
+    <p><a [routerLink]="['/viewbook']" [queryParams]="{name: LoginName}">all bookings</a></p>
+    <p><a [routerLink]="['/search']" [queryParams]="{name: LoginName}">search Listings</a></p>
+</div>
+<body>
 <h1>All Listings</h1>
 <h2>Click the button below to book</h2>
-<p><a [routerLink]="['/viewbook']" [queryParams]="{name: LoginName}">Click Here to view all bookings</a></p>
-<p><a [routerLink]="['/search']" [queryParams]="{name: LoginName}">Click Here to search Listings</a></p>
+
 
 <h3>Welcome {{LoginName}}</h3>
 
-<div *ngFor="let list of ListingsOutput | async">
-    <p>listing id: {{list.listing_id}}</p>
-    <p>listing title: {{list.listing_title}}</p>
-    <p>description: {{list.description}}</p>
-    <p>street: {{list.street}}</p>
-    <p>city: {{list.city}}</p>
-    <p>price: {{list.price}}</p>
-    <p>email: {{list.email}}</p>
-    <p>username: {{list.username}}</p>
-    <p>postal_code: {{list.postal_code}}</p>
-    <p><b>Book this location!</b></p>
+<mat-card class="entry" *ngFor="let list of ListingsOutput | async">
+    <mat-card-content>listing id: {{list.listing_id}}</mat-card-content>
+    <mat-card-content>listing title: {{list.listing_title}}</mat-card-content>
+    <mat-card-content>description: {{list.description}}</mat-card-content>
+    <mat-card-content>street: {{list.street}}</mat-card-content>
+    <mat-card-content>city: {{list.city}}</mat-card-content>
+    <mat-card-content>price: {{list.price}}</mat-card-content>
+    <mat-card-content>email: {{list.email}}</mat-card-content>
+    <mat-card-content>username: {{list.username}}</mat-card-content>
+    <mat-card-content>postal_code: {{list.postal_code}}</mat-card-content>
+    <mat-card-content><b>Book this location</b></mat-card-content>
     <form [formGroup]="bookingform" (ngSubmit)="onSubmit(list)">
 
         <p>
@@ -35,5 +38,5 @@
     </p>
     </form>
     <br>
-    <p id="output"></p>
-</div>
+</mat-card><br>
+</body>

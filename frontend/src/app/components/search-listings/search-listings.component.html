@@ -1,9 +1,13 @@
-<p>search-listings works!</p>
+<div class="topnav">
+  <p><a class="active" [routerLink]="['/login']">Logout</a></p>
+  <p><a [routerLink]="['/viewbook']" [queryParams]="{name: LoginName}">all bookings</a></p>
+  <p><a [routerLink]="['/search']" [queryParams]="{name: LoginName}">search Listings</a></p>
+</div>
 
-<h1>search Listing Page</h1>
+<h1>Search Listing Page</h1>
 <h4>you can search List here by name, city or postal code.</h4>
 
-  <div>
+  <mat-card class="entry">
     <form  [formGroup]="getUsernameForm" (ngSubmit)="onSubmitUser(getUsernameForm.value)" >
         <p>
             <label for="username"><h4> Search By Username </h4></label>
@@ -11,7 +15,7 @@
         </p>
         <p>
             <button type="submit">Username Search</button>
-          </p><p>{{errorsUser}}</p><div *ngFor="let list of userOutput">
+          </p><p>{{errorsUser}}</p><mat-card *ngFor="let list of userOutput">
             <p>listing title: {{list.listing_title}}</p>
             <p>description: {{list.description}}</p>
             <p>street: {{list.street}}</p>
@@ -21,12 +25,12 @@
             <p>username: {{list.username}}</p>
             <p>postal_code: {{list.postal_code}}</p>
             <br>
-          </div>
+          </mat-card>
     </form>
-  </div>
+  </mat-card>
   <br>
 
-  <div>
+  <mat-card class="entry">
     <form [formGroup]="getCityForm" (ngSubmit)="onSubmitCity(getCityForm.value)">
         <p>
             <label for="cities"><h4> Search By City</h4> </label>
@@ -35,7 +39,7 @@
         <p>
             <button type="submit">City Search</button>
           </p><p>{{errorsCity}}</p>
-          <div *ngFor="let list of cityOutPut1">
+          <mat-card *ngFor="let list of cityOutPut1">
             <p>listing title: {{list.listing_title}}</p>
             <p>description: {{list.description}}</p>
             <p>street: {{list.street}}</p>
@@ -45,11 +49,11 @@
             <p>username: {{list.username}}</p>
             <p>postal_code: {{list.postal_code}}</p>
             <br>
-        </div>
+        </mat-card>
     </form>
-  </div>
+  </mat-card>
   <br>
-  <div>
+  <mat-card class="entry">
     <form  [formGroup]="getPostalForm" (ngSubmit)="onSubmitPostal(getPostalForm.value)">
         <p>
             <label for="postal_code"> <h4>Search By Postal Code</h4> </label>
@@ -57,7 +61,7 @@
         </p>
         <p>
             <button type="submit">Postal Code Search</button>
-          </p><p>{{errorsPostal}}</p><div *ngFor="let list of postalOutput">
+          </p><p>{{errorsPostal}}</p><mat-card *ngFor="let list of postalOutput">
             <p>listing title: {{list.listing_title}}</p>
             <p>description: {{list.description}}</p>
             <p>street: {{list.street}}</p>
@@ -67,6 +71,6 @@
             <p>username: {{list.username}}</p>
             <p>postal_code: {{list.postal_code}}</p>
             <br>
-          </div>
+          </mat-card>
     </form>
-  </div>
+  </mat-card>

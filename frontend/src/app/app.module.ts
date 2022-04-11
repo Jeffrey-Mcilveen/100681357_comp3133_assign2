@@ -15,6 +15,8 @@ import { ViewBookingsComponent } from './components/view-bookings/view-bookings.
 import { CreateBookingComponent } from './components/create-booking/create-booking.component';
 import { AdminAddlistingsComponent } from './components/admin-addlistings/admin-addlistings.component';
 import { SearchListingsComponent } from './components/search-listings/search-listings.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { SearchListingsComponent } from './components/search-listings/search-lis
     HttpClientModule,
     ApolloModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [
     {

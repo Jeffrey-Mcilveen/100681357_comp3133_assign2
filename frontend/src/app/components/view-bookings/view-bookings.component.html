@@ -1,13 +1,17 @@
-<p>view-bookings works!</p>
-<h1>booking List here!</h1>
-<h3>Welcome {{LoginName}}</h3>
-<h2>All bookings bellow</h2>
-
-<div *ngFor="let list of BookingOutput | async" >
-    <p>Listing id: {{list.listing_id}}</p>
-    <p>Looking id: {{list.booking_id}}</p>
-    <p>Booking date: {{list.booking_date}}</p>
-    <p>Booking start: {{list.booking_start}}</p>
-    <p>Booking end: {{list.booking_end}}</p>
-    <br>
+<div class="topnav">
+    <p><a class="active" [routerLink]="['/login']">Logout</a></p>
+    <p><a [routerLink]="['/viewbook']" [queryParams]="{name: LoginName}">all bookings</a></p>
+    <p><a [routerLink]="['/search']" [queryParams]="{name: LoginName}">search Listings</a></p>
 </div>
+<h1>booking List</h1>
+<h3>Welcome {{LoginName}}</h3>
+<h2>All bookings below</h2>
+
+<mat-card class="entry" *ngFor="let list of BookingOutput | async" >
+    <mat-card-content>Listing id: {{list.listing_id}}</mat-card-content>
+    <mat-card-content>Looking id: {{list.booking_id}}</mat-card-content>
+    <mat-card-content>Booking date: {{list.booking_date}}</mat-card-content>
+    <mat-card-content>Booking start: {{list.booking_start}}</mat-card-content>
+    <mat-card-content>Booking end: {{list.booking_end}}</mat-card-content>
+    <br>
+</mat-card>

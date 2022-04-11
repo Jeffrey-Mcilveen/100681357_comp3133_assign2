@@ -43,21 +43,7 @@ export class ViewListingComponent implements OnInit {
     }
   }
   `
-  // private GET_LISTINGBYUSER = gql`
-  //   query ($userName: String!){
-  //     getAdminlistingsbyUsername($username: ){
-  //       listing_title
-  //       description
-  //       street
-  //       city
-  //       price
-  //       email
-  //       username
-  //   	  postal_code
-  //     }
-       
-  // }
-  // `
+ 
   getListing(){
     console.log("active")
     this.apolloClient.watchQuery<any>({

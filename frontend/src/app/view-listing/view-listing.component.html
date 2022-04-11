@@ -1,11 +1,13 @@
-<p>view-listing works!</p>
+<div class="topnav">
+    <p><a class="active" [routerLink]="['/login']">Logout</a></p>
+    <p><a [routerLink]="['/view']" [queryParams]="{name: LoginName}">All Listings</a></p>
+    <p><a [routerLink]="['/search']" [queryParams]="{name: LoginName}">Search Listings</a></p>
+  </div>
 
 
-<!-- <button (click)="getListing()">get listing to console</button> -->
-<h3>Welcome {{LoginName}}</h3>
-<h4>below is all listings inputed</h4>
+<h2>Welcome {{LoginName}}</h2>
 <h1>All listings</h1>
-<div *ngFor="let list of ListingsOutput | async" >
+<mat-card class="entry" *ngFor="let list of ListingsOutput | async" >
     <p>listing title: {{list.listing_title}}</p>
     <p>description: {{list.description}}</p>
     <p>street: {{list.street}}</p>
@@ -14,6 +16,4 @@
     <p>email: {{list.email}}</p>
     <p>username: {{list.username}}</p>
     <p>postal_code: {{list.postal_code}}</p>
-    <p></p>
-    <br>
-</div>
+</mat-card>

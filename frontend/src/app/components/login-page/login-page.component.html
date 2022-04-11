@@ -1,7 +1,8 @@
-<p>login-page works!</p>
 
-<h1>login in here!</h1>
 
+
+<mat-card class="entry">
+    <h1>Login in here!</h1>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <p>
             <label for="user_Name">UserName </label>
@@ -17,6 +18,7 @@
                 </p>
     </form>
     <p><a [routerLink]="['/signup']">Signup here!</a></p>
+</mat-card>
    
 
  

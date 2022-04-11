@@ -14,6 +14,7 @@ export class UserSignupComponent implements OnInit {
     new User('1', 'customer'),
     new User('2','admin')
   ]
+  response:any
   
 
   signinForm = new FormGroup({
@@ -65,7 +66,9 @@ export class UserSignupComponent implements OnInit {
         Type_: Types_
         
       }
-    }).subscribe()
+    }).subscribe(resp =>{
+      this.response = `Signed up, you've all set ${Uinput}`
+    })
   }
 
 
